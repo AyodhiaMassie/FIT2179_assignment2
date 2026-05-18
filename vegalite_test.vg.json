@@ -1,0 +1,26 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Test Bar Chart"
+  },
+  "data": {
+    "values": [
+      {"city": "Kuala Lumpur", "daily_cost": 35},
+      {"city": "Penang", "daily_cost": 28},
+      {"city": "Johor Bahru", "daily_cost": 24}
+    ]
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "daily_cost",
+      "type": "quantitative",
+      "title": "Daily Cost"
+    },
+    "y": {
+      "field": "city",
+      "type": "nominal",
+      "title": null
+    }
+  }
+}
