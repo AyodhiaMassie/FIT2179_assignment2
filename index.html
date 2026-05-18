@@ -1,24 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <title>Malaysia's Internet Growth Story</title>
 
-    <script src="vegalite_test_viz.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-    <title>FIT2179 Vega-Lite Test</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <main>
+    <header class="hero">
+      <h1>Malaysia’s Internet Growth Story</h1>
+      <p class="intro">
+        text here
+      </p>
+    </header>
 
-    <h1>My First Vega-Lite Webpage</h1>
+    <section class="feature-viz">
+  <div class="chart-card">
+    <div class="chart-header">
+    <h3>Growth of Internet Access in Malaysia</h3>
+  </div>
+    <div id="chart1"></div>
+  </div>
 
-    <div id="bar_chart"></div>
+  <div class="annotation-panel">
+    <h2>Malaysia Went Online in Two Decades</h2>
+    <p>
+      Text here for the annotation/explanation beside the chart.
+    </p>
+  </div>
+</section>
 
+<section class="paired-section">
+  <div class="paired-header">
+    <h2>Internet access now shapes everyday life</h2>
+    
+  </div>
+
+  <div class="viz-grid">
+    <section class="viz-panel">
+      <div class="chart-card">
+        <div id="chart2"></div>
+      </div>
+      <p class="chart-note">
+    Text explaining chart 2 here.
+  </p>
+    </section>
+
+    <section class="viz-panel">
+      <div class="chart-card">
+        <div id="chart3"></div>
+      </div>
+      <p class="chart-note">
+    Text explaining chart 3 here.
+  </p>
+    </section>
+  </div>
+</section>
+
+<section class="paired-section">
+  <div class="viz-grid">
+    <section class="viz-panel">
+      <p class="section-label">04 · Story point</p>
+      <h2>Chart 4 story title</h2>
+
+      <div class="chart-card">
+        <div id="chart4"></div>
+      </div>
+
+      <p class="chart-note">
+        Caption explaining chart 4 here.
+      </p>
+    </section>
+
+    <section class="viz-panel">
+      <p class="section-label">05 · Story point</p>
+      <h2>Chart 5 story title</h2>
+
+      <div class="chart-card">
+        <div id="chart5"></div>
+      </div>
+
+      <p class="chart-note">
+        Caption explaining chart 5 here.
+      </p>
+    </section>
+  </div>
+</section>
+
+<section class="feature-viz">
+  <div>
+    <p class="section-label">06 · Story point</p>
+    <h2>Chart 6 story title</h2>
+
+    <div class="chart-card">
+      <div id="chart6"></div>
+    </div>
+  </div>
+
+  <div class="annotation-panel">
+    <h2>Annotation title here</h2>
+    <p>
+      Write your explanation/annotation text here. This is where you explain the key takeaway
+      from the chart on the left.
+    </p>
+  </div>
+</section>
+
+  </main>
+
+  <script src="main.js"></script>
 </body>
-
 </html>
