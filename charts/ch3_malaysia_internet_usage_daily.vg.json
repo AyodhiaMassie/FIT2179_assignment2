@@ -1,0 +1,115 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Distribution of daily internet usage duration among Malaysian internet users.",
+  "width": 430,
+  "height": 280,
+  "background": "transparent",
+  "data": {
+    "url": "datasets/malaysia_internet_usage_daily.csv"
+  },
+
+"transform": [
+  {
+    "calculate": "{'Less than 1 hour': 6, '1-4 Hours': 5, '5-8 Hours': 4, '9-12 Hours': 3, '13-18 Hours': 2, 'More than 18 Hours': 1}[datum.usage_interval]",
+    "as": "stack_order"
+  }
+],
+
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 3
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "axis": {
+        "title": null,
+        "labelFontSize": 13,
+        "labelFontWeight": "bold"
+      }
+    },
+    "y": {
+  "field": "percentage",
+  "type": "quantitative",
+  "stack": true,
+  "scale": {
+    "domain": [0, 100]
+  },
+  "axis": {
+    "title": "Share of internet users (%)",
+    "labelFontSize": 12,
+    "titleFontSize": 13
+  }
+},
+    "color": {
+      "field": "usage_interval",
+      "type": "ordinal",
+      "scale": {
+        "domain": [
+  "Less than 1 hour",
+  "1-4 Hours",
+  "5-8 Hours",
+  "9-12 Hours",
+  "13-18 Hours",
+  "More than 18 Hours"
+],
+        "range": [
+      "#d9f0d3",
+      "#a6dba0",
+      "#5aae61",
+      "#1b7837",
+      "#006837",
+      "#00441b"
+    ]
+      },
+      "legend": {
+        "title": "Daily internet use",
+        "orient": "bottom",
+        "columns": 3,
+        "labelFontSize": 11,
+        "titleFontSize": 12
+      }
+    },
+    
+    "order": {
+  "field": "stack_order",
+  "type": "quantitative",
+  "sort": "descending"
+},
+    "tooltip": [
+      {
+        "field": "year",
+        "type": "ordinal",
+        "title": "Year"
+      },
+      {
+        "field": "usage_interval",
+        "type": "nominal",
+        "title": "Daily usage"
+      },
+      {
+        "field": "percentage",
+        "type": "quantitative",
+        "title": "Share",
+        "format": ".1f"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": false,
+      "domain": false,
+      "tickColor": "#777",
+      "labelColor": "#222",
+      "titleColor": "#222"
+    },
+    "legend": {
+      "labelColor": "#222",
+      "titleColor": "#222"
+    }
+  }
+}

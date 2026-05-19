@@ -1,0 +1,74 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Urban and rural household internet access in Malaysia (2024).",
+  "width": 420,
+  "height": 140,
+  "background": "transparent",
+
+  "data": {
+    "url": "datasets/malaysia_internet_access_urbanrural.csv"
+  },
+
+  "transform": [
+    {
+      "calculate": "toNumber(datum.internet_access)",
+      "as": "access_num"
+    }
+  ],
+
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 8,
+        "height": 38,
+        "color": "#1b7837"
+      },
+      "encoding": {
+        "y": {
+          "field": "area",
+          "type": "nominal",
+          "sort": ["Urban", "Rural"],
+          "axis": { "title": null }
+        },
+        "x": {
+          "field": "access_num",
+          "type": "quantitative",
+          "scale": { "domain": [0, 100] },
+          "axis": { "title": "Household internet access (%)" }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 6,
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "color": "#222"
+      },
+      "encoding": {
+        "y": {
+          "field": "area",
+          "type": "nominal",
+          "sort": ["Urban", "Rural"]
+        },
+        "x": {
+          "field": "access_num",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "access_num",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    }
+  ],
+
+  "config": {
+    "view": { "stroke": null }
+  }
+}
