@@ -3,130 +3,368 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Malaysia's Internet Growth Story</title>
-
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,650;6..72,750&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=5" />
 </head>
 
 <body>
-  <main>
-    <header class="hero">
-      <h1>Malaysia's Digital Divide and The Future it Shapes</h1>
-      <p class="intro">
-        text here
-      </p>
-    </header>
-
-    <section class="feature-viz">
-  <div class="chart-card">
-    <div class="chart-header">
-    <h3>Growth of Internet Access in Malaysia</h3>
-  </div>
-    <div id="chart1"></div>
-  </div>
-
-  <div class="annotation-panel">
-    <h2>Malaysia Went Online in Two Decades</h2>
-    <p>
-      In the year 2000, only a minority of Malaysians used the internet. Over the following two decades, however, internet access expanded rapidly across the country.
-
-By 2024, Malaysia had progressed from early adoption to near-universal connectivity. The internet had become accessible to almost the entire population, marking one of the country’s most significant digital transformations.
-However, it also sets up a more important question: if most Malaysians are online, who still risks being left behind?
-    </p>
-  </div>
-</section>
-
-<section class="paired-section">
-  <div class="paired-header">
-    <h2>Internet access now shapes everyday life</h2>
-    
-  </div>
-
-  <div class="viz-grid">
-    <section class="viz-panel">
-      <div class="chart-card">
-        <div id="chart2"></div>
+  <header class="site-hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="kicker">Malaysia's digital transition</p>
+        <h1>Who benefits when a nation moves online?</h1>
+        <p class="dek">
+          Malaysia has become rapidly connected. The more important question now is
+          who still has less access to the opportunities that connection creates.
+        </p>
       </div>
-      <p class="chart-note">
-    The internet has become deeply embedded in everyday life, extending far beyond simple communication. This chart shows that Malaysians rely on the internet for a wide range of daily activities, including social networking, entertainment, shopping and services, and communication. The diversity of these activities highlights how digital connectivity now shapes how people interact, learn, and spend their time. As more aspects of daily life move online, reliable internet access becomes increasingly important for full participation in modern society.
-  </p>
-    </section>
-
-    <section class="viz-panel">
-      <div class="chart-card">
-        <div id="chart3"></div>
-      </div>
-      <p class="chart-note">
-    Internet usage in Malaysia has steadily increased over the years, reflecting how digital technologies have become a routine part of everyday life. The rise in daily usage suggests that the internet is no longer an occasional tool, but a constant presence in work, study, entertainment, and communication. This growing dependence also means that individuals without stable internet access may face increasing difficulty keeping up with the demands of modern life.
-  </p>
-    </section>
-  </div>
-</section>
-
-<section class="paired-section">
-  <div class="viz-grid">
-    <section class="viz-panel">
-      <h2>Chart 4 story title</h2>
-
-      <div class="chart-card">
-        <div id="chart4"></div>
-      </div>
-
-    </section>
-
-    <section class="viz-panel">
-      <h2>Chart 5 story title</h2>
-
-      <div class="chart-card">
-        <div id="chart5"></div>
-      </div>
-
-      <p class="chart-note">
-        Caption explaining chart 5 here.
-      </p>
-    </section>
-  </div>
-</section>
-
-<section class="feature-viz">
-  <div>
-    <div class="chart-card">
-      <div id="chart6"></div>
+      <aside class="hero-meta" aria-label="Project framing">
+        <p class="meta-label">Chapters</p>
+        <ol>
+          <li>Malaysia's rapid move online</li>
+          <li>How internet use became everyday infrastructure</li>
+          <li>Where access still differs across states and communities</li>
+          <li>How connectivity links with opportunity</li>
+          <li>Whether uneven gaps are closing over time</li>
+          <li>Malaysia's place in the global internet story</li>
+        </ol>
+      </aside>
     </div>
-  </div>
+  </header>
 
-  <div class="annotation-panel">
-    <h2>The Digital Divide Extends Beyond Access</h2>
-    <p>
-      The digital divide is not only about whether people can access the internet, but also about the quality of that access. While many areas in Malaysia may technically be connected, internet speeds can vary dramatically between regions. Faster and more stable connections allow users to participate in online learning, remote work, video communication, and digital services more effectively. In areas with slower internet speeds, these activities become more difficult and frustrating, limiting how people can benefit from the digital world. This uneven quality of connectivity shows that true digital inclusion requires more than basic access alone.
-    </p>
-  </div>
-</section>
+  <main>
+    <section class="term-strip" aria-label="Key terms">
+      <div class="container term-grid">
+        <div>
+          <p class="term-name">Internet penetration</p>
+          <p>The share of people in a place who use the internet.</p>
+        </div>
+        <div>
+          <p class="term-name">HDI</p>
+          <p>The Human Development Index, a broad measure of health, education, and income.</p>
+        </div>
+      </div>
+    </section>
 
-<section class="story-section">
+    <section class="chapter chapter-lede" id="chapter-1">
+      <div class="container story-grid">
+        <div class="story-copy">
+          <p class="section-label">Chapter 1</p>
+          <h2>Malaysia went online in a generation</h2>
+          <p>
+            The story begins with a national success: internet access grew quickly
+            over two decades and became part of ordinary Malaysian life.
+          </p>
+        </div>
+        <figure class="chart-shell chart-large">
+          <div class="chart-heading">
+            <h3>Population of Malaysia gaining access to the internet, 2000-2024</h3>
+            <p>Dataset: ch1_internet_pen_overtime.csv</p>
+          </div>
+          <div id="chart1" class="chart-canvas" data-chart="1">
+            <svg class="fallback-chart" viewBox="0 0 900 430" role="img" aria-label="Malaysia internet penetration rose from about 21 percent in 2000 to about 98 percent in 2024.">
+              <rect width="900" height="430" fill="transparent" />
+              <g class="fallback-grid">
+                <line x1="70" y1="350" x2="845" y2="350" />
+                <line x1="70" y1="286" x2="845" y2="286" />
+                <line x1="70" y1="222" x2="845" y2="222" />
+                <line x1="70" y1="158" x2="845" y2="158" />
+                <line x1="70" y1="94" x2="845" y2="94" />
+              </g>
+              <g class="fallback-axis">
+                <line x1="70" y1="350" x2="845" y2="350" />
+                <line x1="70" y1="30" x2="70" y2="350" />
+                <text x="70" y="382">2000</text>
+                <text x="226" y="382">2005</text>
+                <text x="393" y="382">2010</text>
+                <text x="554" y="382">2015</text>
+                <text x="715" y="382">2020</text>
+                <text x="845" y="382" text-anchor="end">2024</text>
+                <text x="50" y="354" text-anchor="end">0%</text>
+                <text x="50" y="290" text-anchor="end">20%</text>
+                <text x="50" y="226" text-anchor="end">40%</text>
+                <text x="50" y="162" text-anchor="end">60%</text>
+                <text x="50" y="98" text-anchor="end">80%</text>
+                <text x="50" y="34" text-anchor="end">100%</text>
+              </g>
+              <path class="fallback-area" d="M70 281.6 L102.3 264.6 L134.6 246.5 L166.9 238.1 L199.2 214.8 L231.5 194.4 L263.8 184.8 L296.1 171.8 L328.4 171.4 L360.7 171.1 L393 169.8 L425.3 154.8 L457.6 139.4 L489.9 167.4 L522.2 146.3 L554.5 122.6 L586.8 97.9 L619.1 93.6 L651.4 90.2 L683.7 80.6 L716 63.4 L748.3 40.4 L780.6 38.3 L812.9 37.4 L845 36.3 L845 350 L70 350 Z" />
+              <path class="fallback-line" d="M70 281.6 L102.3 264.6 L134.6 246.5 L166.9 238.1 L199.2 214.8 L231.5 194.4 L263.8 184.8 L296.1 171.8 L328.4 171.4 L360.7 171.1 L393 169.8 L425.3 154.8 L457.6 139.4 L489.9 167.4 L522.2 146.3 L554.5 122.6 L586.8 97.9 L619.1 93.6 L651.4 90.2 L683.7 80.6 L716 63.4 L748.3 40.4 L780.6 38.3 L812.9 37.4 L845 36.3" />
+              <circle class="fallback-point" cx="70" cy="281.6" r="6">
+                <title>2000: about 1 in 5 Malaysians were online</title>
+              </circle>
+              <circle class="fallback-point" cx="845" cy="36.3" r="6">
+                <title>2024: almost every Malaysian was online</title>
+              </circle>
+            </svg>
+          </div>
+          <figcaption>Malaysia moved from early adoption to widespread internet use in just over two decades. Hover over the two endpoint dots for context.</figcaption>
+        </figure>
+      </div>
+    </section>
 
-  <div class="story-text">
-    <h2>Unequal Internet Access means Unequal Opportunity</h2>
+    <section class="chapter chapter-band" id="chapter-2">
+      <div class="container">
+        <div class="section-intro">
+          <p class="section-label">Chapter 2</p>
+          <h2>Internet access is now everyday infrastructure</h2>
+          <p>
+            Access matters because the internet is no longer occasional. It shapes
+            how people communicate, learn, shop, work, and spend time.
+          </p>
+        </div>
+        <div class="paired-layout">
+          <article class="viz-story">
+            <figure class="chart-shell">
+              <div class="chart-heading">
+                <h3>What Malaysians use the internet for</h3>
+                <p>Dataset: ch2_internet_usage_byCategories.csv</p>
+              </div>
+              <div id="chart2" class="chart-placeholder" data-chart="2">
+                <span>Radial bar placeholder</span>
+              </div>
+              <figcaption>From shopping to social connection, the internet now shapes nearly every part of daily life — hover over each ring to explore the usage rate behind each activity</figcaption>
+            </figure>
+            <aside class="takeaway-card">
+              <div class="takeaway-icon" aria-hidden="true">!</div>
+              <div>
+                <p class="takeaway-label">Key takeaway</p>
+                <p>
+                  The rise of service, banking, and shopping activities highlights how internet access increasingly influences economic participation, not just communication.
+                </p>
+              </div>
+            </aside>
+          </article>
 
-    <p>
-      As internet access becomes increasingly essential for education, communication, and employment, unequal connectivity can directly translate into unequal opportunity. The trend shown in this chart reveals that countries with higher internet penetration also tend to achieve higher Human Development Index (HDI) scores. Nations with widespread internet access are often better positioned to provide digital learning, online services, remote work opportunities, and access to global information networks. In contrast, countries with lower levels of connectivity risk leaving large portions of their population disconnected from these opportunities. This relationship suggests that the digital divide is no longer solely a technological issue; it has become a social and economic divide that can significantly shape people’s quality of life and future prospects.
-    </p>
+          <article class="viz-story">
+            <figure class="chart-shell">
+              <div class="chart-heading">
+                <h3>How often Malaysians use the internet everyday</h3>
+                <p>Dataset: ch3_internet_usage_daily.csv</p>
+              </div>
+              <div id="chart3" class="chart-placeholder" data-chart="3">
+                <span>Stacked bar placeholder</span>
+              </div>
+              <figcaption class="caption-spacer" aria-hidden="true">&nbsp;</figcaption>
+            </figure>
+            <aside class="takeaway-card">
+              <div class="takeaway-icon" aria-hidden="true">!</div>
+              <div>
+                <p class="takeaway-label">Key takeaway</p>
+                <p>
+                  The sharp rise in heavier internet usage during 2020 likely reflects how
+                  lockdowns pushed work, entertainment, and social interaction online &mdash;
+                  habits that continued even after the pandemic eased.
+                </p>
+              </div>
+            </aside>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  </div>
+    <section class="chapter" id="chapter-3">
+      <div class="container split-intro chapter-three-intro">
+        <div>
+          <p class="section-label">Chapter 3</p>
+          <h2>Not everyone is online</h2>
+        </div>
+        <p>
+          For most city dwellers, the internet is invisible infrastructure &mdash;
+          always there, always on. But for many Malaysians, a reliable connection
+          remains out of reach, and with it, the opportunities it carries.
+        </p>
+      </div>
 
-  <div class="chart-card">
-    <div id="chart7"></div>
-  </div>
+      <div class="container paired-layout">
+        <article class="viz-story">
+          <figure class="chart-shell">
+            <div class="chart-heading">
+              <h3>Internet access across states in Malaysia</h3>
+              <p>Dataset: ch4_internet_usage_byState.csv</p>
+            </div>
+            <div id="chart4" class="chart-placeholder" data-chart="4">
+              <span>Choropleth map placeholder</span>
+            </div>
+          </figure>
+          <aside class="takeaway-card">
+            <div class="takeaway-icon" aria-hidden="true">!</div>
+            <div>
+              <p class="takeaway-label">Key takeaway</p>
+              <p>Kuala Lumpur and Putrajaya sit at the top of the distribution, while Kelantan, Sabah, and Sarawak show how national progress can still leave regional gaps.</p>
+            </div>
+          </aside>
+        </article>
 
-</section>
+        <article class="viz-story">
+          <figure class="chart-shell">
+            <div class="chart-heading">
+              <h3>Internet access in Urban vs Rural areas</h3>
+              <p>Dataset: ch5_internet_usage_urbanvsrural.csv</p>
+            </div>
+            <div id="chart5" class="chart-placeholder" data-chart="5">
+              <span>Horizontal bar placeholder</span>
+            </div>
+          </figure>
+          <aside class="takeaway-card">
+            <div class="takeaway-icon" aria-hidden="true">!</div>
+            <div>
+              <p class="takeaway-label">Key takeaway</p>
+              <p>Urban access is close to universal, but the rural figure remains lower. That difference matters when services, education, and work keep moving online.</p>
+            </div>
+          </aside>
+        </article>
+      </div>
+    </section>
 
+    <section class="chapter chapter-emphasis" id="chapter-4">
+      <div class="container story-grid reverse">
+        <div class="story-copy">
+          <p class="section-label">Chapter 4</p>
+          <h2>Connectivity is tied to opportunity</h2>
+          <p>
+            Unequal access wouldn't matter as much if the internet were just entertainment. But the data shows something harder to brush off — whether you look globally or state by state across Malaysia, connectivity and quality of life move in the same direction.
+          </p>
+        </div>
+        <div class="stacked-charts">
+          <article class="viz-story">
+            <figure class="chart-shell">
+              <div class="chart-heading">
+                <h3>The link between internet access and HDI</h3>
+                <p>Dataset: ch6_internet_pen_vs_hdi.csv</p>
+              </div>
+              <div id="chart6" class="chart-placeholder" data-chart="6">
+                <span>Scatter plot placeholder</span>
+              </div>
+            </figure>
+            <aside class="takeaway-card">
+              <div class="takeaway-icon" aria-hidden="true">!</div>
+              <div>
+                <p class="takeaway-label">Key takeaway</p>
+                <p>Malaysia sits among higher-HDI Asian countries with high internet penetration, pointing to a simple pattern: the more connected a country, the better its people tend to live.</p>
+              </div>
+            </aside>
+          </article>
+
+          <article class="viz-story">
+            <figure class="chart-shell">
+              <div class="chart-heading">
+                <h3>The link between internet and household income</h3>
+                <p>Dataset: ch7_internetpen_vs_householdincome.csv</p>
+              </div>
+              <div id="chart7" class="chart-placeholder" data-chart="7">
+                <span>Scatter plot placeholder</span>
+              </div>
+            </figure>
+            <aside class="takeaway-card">
+              <div class="takeaway-icon" aria-hidden="true">!</div>
+              <div>
+                <p class="takeaway-label">Key takeaway</p>
+                <p>The pattern holds within Malaysia too. Wealthier states like Kuala Lumpur and Putrajaya top the chart on both income and connectivity, while Sabah and Sarawak — among the lowest in household income — also lag furthest behind online.</p>
+              </div>
+            </aside>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="chapter-5">
+      <div class="container">
+        <div class="section-intro narrow">
+          <p class="section-label">Chapter 5</p>
+          <h2>Progress is happening, but unevenly</h2>
+          <p>
+            If connectivity shapes opportunity, the next question is whether the
+            places with less access are catching up. The recent trend is improving,
+            but the gains are not yet closing every gap.
+          </p>
+        </div>
+
+        <div class="paired-layout">
+          <article class="viz-story">
+            <figure class="chart-shell">
+              <div class="chart-heading">
+                <h3>Internet penetration across states (2021 - 2024)</h3>
+                <p>Dataset: ch8_internetpen_byState_overtime.csv</p>
+              </div>
+              <div id="chart8" class="chart-placeholder" data-chart="8">
+                <span>Small multiples placeholder</span>
+              </div>
+            </figure>
+            <aside class="takeaway-card">
+              <div class="takeaway-icon" aria-hidden="true">!</div>
+              <div>
+                <p class="takeaway-label">Key takeaway</p>
+                <p>Nearly every state improves from 2021 to 2024, but Sabah and Sarawak remain below the national front-runners even as they climb.</p>
+              </div>
+            </aside>
+          </article>
+
+          <article class="viz-story">
+            <figure class="chart-shell">
+              <div class="chart-heading">
+                <h3>Internet penetration in Rural and Urban areas (2021 - 2024)</h3>
+                <p>Dataset: ch9_internetpen_ruralvsurban_overtime.csv</p>
+              </div>
+              <div id="chart9" class="chart-placeholder" data-chart="9">
+                <span>Slope graph placeholder</span>
+              </div>
+            </figure>
+            <aside class="takeaway-card">
+              <div class="takeaway-icon" aria-hidden="true">!</div>
+              <div>
+                <p class="takeaway-label">Key takeaway</p>
+                <p>Rural penetration is rising faster than urban penetration, but much work still needs to be done to match the urban areas.</p>
+              </div>
+            </aside>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter chapter-closing" id="chapter-6">
+      <div class="container story-grid">
+        <div class="story-copy">
+          <p class="section-label">Chapter 6</p>
+          <h2>Malaysia in the global picture</h2>
+          <p>
+            The ending returns to the world stage, comparing Malaysia's trajectory
+            with other countries and the global average.
+          </p>
+        </div>
+        <article class="viz-story">
+          <figure class="chart-shell chart-large">
+            <div class="chart-heading">
+              <h3>Global internet penetration</h3>
+              <p>Dataset: ch10_global_internetpen.csv</p>
+            </div>
+            <div id="chart10" class="chart-placeholder" data-chart="10">
+              <span>Multi-line trajectory placeholder</span>
+            </div>
+          </figure>
+          <aside class="takeaway-card">
+            <div class="takeaway-icon" aria-hidden="true">!</div>
+            <div>
+              <p class="takeaway-label">Key takeaway</p>
+              <p>Malaysia now sits well above the world average and can be compared directly with regional and global peers, but the earlier chapters show that a strong national position can still contain local gaps.</p>
+            </div>
+          </aside>
+        </article>
+      </div>
+    </section>
   </main>
 
-  <script src="main.js"></script>
+  <footer class="site-footer">
+    <div class="container">
+      <p>FIT2179 Assignment 2 narrative visualization scaffold. Chart rendering to be added later.</p>
+    </div>
+  </footer>
+
+  <script src="main.js?v=16"></script>
 </body>
 </html>
