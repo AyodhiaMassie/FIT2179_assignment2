@@ -1,0 +1,117 @@
+{
+    "$schema":  "https://vega.github.io/schema/vega-lite/v5.json",
+    "description":  "Internet usage by Malaysian state and federal territory.",
+    "width":  "container",
+    "height":  430,
+    "autosize":  {
+                     "type":  "fit",
+                     "contains":  "padding"
+                 },
+    "padding":  {
+                    "top":  0,
+                    "right":  0,
+                    "bottom":  0,
+                    "left":  0
+                },
+    "background":  "transparent",
+    "data":  {
+                 "url":  "../datasets/malaysia_states.geojson",
+                 "format":  {
+                                "type":  "json",
+                                "property":  "features"
+                            }
+             },
+    "transform":  [
+                      {
+                          "lookup":  "properties.name",
+                          "from":  {
+                                       "data":  {
+                                                    "url":  "../datasets/ch4_internet_usage_byState.csv"
+                                                },
+                                       "key":  "state",
+                                       "fields":  [
+                                                      "internet_usage"
+                                                  ]
+                                   }
+                      },
+                      {
+                          "calculate":  "datum.properties.name",
+                          "as":  "state_name"
+                      }
+                  ],
+    "projection":  {
+                       "type":  "mercator",
+                       "center":  [
+                                      109.35,
+                                      4.25
+                                  ],
+                       "scale":  1780
+                   },
+    "config":  {
+                   "font":  "Inter, Arial, sans-serif",
+                   "axis":  {
+                                "labelColor":  "#5d6870",
+                                "labelFontSize":  12,
+                                "labelPadding":  8,
+                                "titleColor":  "#172026",
+                                "titleFontSize":  13,
+                                "titleFontWeight":  700,
+                                "gridColor":  "#e5eeec",
+                                "domainColor":  "#cbd8d5",
+                                "tickColor":  "#cbd8d5"
+                            },
+                   "legend":  {
+                                  "labelColor":  "#5d6870",
+                                  "labelFontSize":  12,
+                                  "titleColor":  "#172026",
+                                  "titleFontSize":  12,
+                                  "titleFontWeight":  700,
+                                  "orient":  "bottom"
+                              },
+                   "view":  {
+                                "stroke":  null
+                            }
+               },
+    "mark":  {
+                 "type":  "geoshape",
+                 "stroke":  "#ffffff",
+                 "strokeWidth":  0.8
+             },
+    "encoding":  {
+                     "color":  {
+                                   "field":  "internet_usage",
+                                   "type":  "quantitative",
+                                   "title":  "Internet usage (%)",
+                                   "scale":  {
+                                                 "domain":  [
+                                                                40,
+                                                                92
+                                                            ],
+                                                 "range":  [
+                                                               "#e9d6c3",
+                                                               "#d7efea",
+                                                               "#0f7b70"
+                                                           ]
+                                             },
+                                   "legend":  {
+                                                  "orient":  "bottom",
+                                                  "direction":  "horizontal",
+                                                  "gradientLength":  220,
+                                                  "title":  "Usage rate"
+                                              }
+                               },
+                     "tooltip":  [
+                                     {
+                                         "field":  "state_name",
+                                         "type":  "nominal",
+                                         "title":  "State"
+                                     },
+                                     {
+                                         "field":  "internet_usage",
+                                         "type":  "quantitative",
+                                         "title":  "Internet usage",
+                                         "format":  ".1f"
+                                     }
+                                 ]
+                 }
+}

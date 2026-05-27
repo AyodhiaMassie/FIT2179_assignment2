@@ -1,0 +1,152 @@
+﻿{
+    "$schema":  "https://vega.github.io/schema/vega-lite/v5.json",
+    "description":  "Urban and rural internet penetration in Malaysia from 2021 to 2024.",
+    "width":  "container",
+    "height":  360,
+    "autosize":  {
+                     "type":  "fit",
+                     "contains":  "padding"
+                 },
+    "padding":  {
+                    "top":  18,
+                    "right":  74,
+                    "bottom":  18,
+                    "left":  12
+                },
+    "background":  "transparent",
+    "data":  {
+                 "url":  "../datasets/ch9_internetpen_ruralvsurban_overtime.csv"
+             },
+    "config":  {
+                   "font":  "Inter, Arial, sans-serif",
+                   "axis":  {
+                                "labelColor":  "#5d6870",
+                                "labelFontSize":  12,
+                                "labelPadding":  8,
+                                "titleColor":  "#172026",
+                                "titleFontSize":  13,
+                                "titleFontWeight":  700,
+                                "gridColor":  "#e5eeec",
+                                "domainColor":  "#cbd8d5",
+                                "tickColor":  "#cbd8d5"
+                            },
+                   "legend":  {
+                                  "labelColor":  "#5d6870",
+                                  "labelFontSize":  12,
+                                  "titleColor":  "#172026",
+                                  "titleFontSize":  12,
+                                  "titleFontWeight":  700,
+                                  "orient":  "bottom"
+                              },
+                   "view":  {
+                                "stroke":  null
+                            }
+               },
+    "layer":  [
+                  {
+                      "mark":  {
+                                   "type":  "line",
+                                   "strokeWidth":  4,
+                                   "point":  {
+                                                 "filled":  true,
+                                                 "size":  90,
+                                                 "stroke":  "#ffffff",
+                                                 "strokeWidth":  1.5
+                                             }
+                               },
+                      "encoding":  {
+                                       "x":  {
+                                                 "field":  "year",
+                                                 "type":  "ordinal",
+                                                 "axis":  {
+                                                              "title":  null,
+                                                              "labelAngle":  0
+                                                          }
+                                             },
+                                       "y":  {
+                                                 "field":  "internet_penetration_percent",
+                                                 "type":  "quantitative",
+                                                 "scale":  {
+                                                               "domain":  [
+                                                                              84,
+                                                                              100
+                                                                          ]
+                                                           },
+                                                 "axis":  {
+                                                              "title":  "Internet penetration (%)",
+                                                              "values":  [
+                                                                             85,
+                                                                             90,
+                                                                             95,
+                                                                             100
+                                                                         ],
+                                                              "format":  ".0f"
+                                                          }
+                                             },
+                                       "color":  {
+                                                     "field":  "strata",
+                                                     "type":  "nominal",
+                                                     "scale":  {
+                                                                   "domain":  [
+                                                                                  "Urban",
+                                                                                  "Rural"
+                                                                              ],
+                                                                   "range":  [
+                                                                                 "#0f7b70",
+                                                                                 "#b65f2a"
+                                                                             ]
+                                                               },
+                                                     "legend":  null
+                                                 },
+                                       "tooltip":  [
+                                                       {
+                                                           "field":  "strata",
+                                                           "type":  "nominal",
+                                                           "title":  "Area"
+                                                       },
+                                                       {
+                                                           "field":  "year",
+                                                           "type":  "ordinal",
+                                                           "title":  "Year"
+                                                       },
+                                                       {
+                                                           "field":  "internet_penetration_percent",
+                                                           "type":  "quantitative",
+                                                           "title":  "Internet penetration",
+                                                           "format":  ".1f"
+                                                       }
+                                                   ]
+                                   }
+                  },
+                  {
+                      "transform":  [
+                                        {
+                                            "filter":  "+datum.year == 2024"
+                                        }
+                                    ],
+                      "mark":  {
+                                   "type":  "text",
+                                   "align":  "left",
+                                   "baseline":  "middle",
+                                   "dx":  10,
+                                   "color":  "#172026",
+                                   "fontWeight":  800,
+                                   "fontSize":  12
+                               },
+                      "encoding":  {
+                                       "x":  {
+                                                 "field":  "year",
+                                                 "type":  "ordinal"
+                                             },
+                                       "y":  {
+                                                 "field":  "internet_penetration_percent",
+                                                 "type":  "quantitative"
+                                             },
+                                       "text":  {
+                                                    "field":  "strata",
+                                                    "type":  "nominal"
+                                                }
+                                   }
+                  }
+              ]
+}

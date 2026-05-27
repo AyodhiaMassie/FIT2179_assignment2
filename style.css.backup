@@ -91,10 +91,6 @@ h2 {
   line-height: 0.98;
 }
 
-.chapter-four-sidebar .chapter-summary p {
-  margin-top: 1.2rem;
-}
-
 h3 {
   font-size: clamp(1.25rem, 2vw, 1.7rem);
   line-height: 1.08;
@@ -188,17 +184,12 @@ p {
   order: 2;
 }
 
-.chapter-four-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
-  column-gap: 72px;
-  row-gap: 38px;
+#chapter-4 .story-grid {
   align-items: start;
 }
 
-.chapter-four-sidebar {
-  display: grid;
-  gap: 28px;
+#chapter-4 .story-copy {
+  align-self: start;
 }
 
 .story-copy p:not(.section-label) {
@@ -221,37 +212,22 @@ p {
   max-width: 760px;
 }
 
-#chapter-2 .section-intro {
+#chapter-5 .section-intro p:not(.section-label) {
+  max-width: calc((100% - 42px) / 2);
+}
+
+#chapter-2 .section-intro,
+#chapter-3 .chapter-three-intro,
+#chapter-5 .section-intro {
   max-width: none;
+}
+
+#chapter-2 .section-intro,
+#chapter-3 .chapter-three-intro {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 42px;
   align-items: end;
-}
-
-#chapter-5 .section-intro p:not(.section-label) {
-  max-width: 760px;
-}
-
-#chapter-5 .section-intro {
-  max-width: none;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 42px;
-  align-items: start;
-}
-
-#chapter-5 .section-intro .snapshot-card {
-  align-self: start;
-  margin-top: -18px;
-}
-
-#chapter-5 .section-intro .snapshot-card .snapshot-value {
-  color: var(--ink);
-  font-family: "Newsreader", Georgia, serif;
-  font-size: clamp(2.35rem, 3.6vw, 3rem);
-  font-weight: 700;
-  line-height: 0.95;
 }
 
 .snapshot-card {
@@ -313,8 +289,7 @@ p {
 }
 
 #chapter-2 .section-intro .snapshot-card .snapshot-value,
-#chapter-3 .chapter-three-intro .snapshot-card .snapshot-value,
-#chapter-4 .development-snapshot .snapshot-value {
+#chapter-3 .chapter-three-intro .snapshot-card .snapshot-value {
   color: var(--ink);
   font-family: "Newsreader", Georgia, serif;
   font-size: clamp(2.35rem, 3.6vw, 3rem);
@@ -323,8 +298,7 @@ p {
 }
 
 #chapter-2 .section-intro .snapshot-card .snapshot-text,
-#chapter-3 .chapter-three-intro .snapshot-card .snapshot-text,
-#chapter-4 .development-snapshot .snapshot-text {
+#chapter-3 .chapter-three-intro .snapshot-card .snapshot-text {
   margin-top: 22px;
   color: #344149;
   font-size: 0.92rem;
@@ -337,12 +311,6 @@ p {
   gap: 72px;
   align-items: end;
   margin-bottom: 46px;
-}
-
-.chapter-three-intro {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 42px;
-  margin-bottom: 58px;
 }
 
 .chapter-three-intro .intro-copy p:not(.section-label) {
@@ -630,82 +598,6 @@ figcaption,
   font-size: 0.9rem;
 }
 
-.footer-grid {
-  display: grid;
-  grid-template-columns: minmax(320px, 1.1fr) minmax(240px, 0.8fr) minmax(280px, 0.9fr);
-  gap: 48px;
-  align-items: start;
-}
-
-.footer-label {
-  margin-bottom: 12px;
-  color: #9ae1c0 !important;
-  font-size: 0.74rem !important;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
-.footer-summary h2 {
-  max-width: 520px;
-  color: #ffffff;
-  font-size: clamp(1.65rem, 2.7vw, 2.5rem);
-  line-height: 1;
-}
-
-.footer-summary p:not(.footer-label) {
-  max-width: 560px;
-  margin-top: 16px;
-  line-height: 1.62;
-}
-
-.footer-meta {
-  display: grid;
-  gap: 16px;
-  margin: 0;
-}
-
-.footer-meta div {
-  padding-bottom: 14px;
-  border-bottom: 1px solid rgba(216, 226, 224, 0.18);
-}
-
-.footer-meta dt {
-  margin-bottom: 4px;
-  color: #9fb3af;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.footer-meta dd {
-  margin: 0;
-  color: #ffffff;
-  font-size: 0.95rem;
-  line-height: 1.45;
-}
-
-.footer-sources ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.footer-sources li {
-  padding: 8px 10px;
-  border: 1px solid rgba(154, 225, 192, 0.28);
-  border-radius: 999px;
-  background: rgba(215, 239, 234, 0.08);
-  color: #eef7f5;
-  font-size: 0.82rem;
-  font-weight: 700;
-}
-
 @media (max-width: 920px) {
   .site-hero {
     min-height: auto;
@@ -716,8 +608,7 @@ figcaption,
   .story-grid.reverse,
   .split-intro,
   .term-grid,
-  .paired-layout,
-  .footer-grid {
+  .paired-layout {
     grid-template-columns: 1fr;
   }
 

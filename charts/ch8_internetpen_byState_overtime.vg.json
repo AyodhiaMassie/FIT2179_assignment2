@@ -1,0 +1,237 @@
+﻿{
+    "$schema":  "https://vega.github.io/schema/vega-lite/v5.json",
+    "description":  "Internet penetration by Malaysian state from 2021 to 2024.",
+    "width":  "container",
+    "height":  360,
+    "autosize":  {
+                     "type":  "fit",
+                     "contains":  "padding"
+                 },
+    "padding":  {
+                    "top":  14,
+                    "right":  52,
+                    "bottom":  18,
+                    "left":  12
+                },
+    "background":  "transparent",
+    "data":  {
+                 "url":  "../datasets/ch8_internetpen_byState_overtime.csv"
+             },
+    "params":  [
+                   {
+                       "name":  "selectedState",
+                       "value":  "Sabah",
+                       "bind":  {
+                                    "input":  "select",
+                                    "name":  "Select state: ",
+                                    "options":  [
+                                                    "Johor",
+                                                    "Kedah",
+                                                    "Kelantan",
+                                                    "Melaka",
+                                                    "Negeri Sembilan",
+                                                    "Pahang",
+                                                    "Pulau Pinang",
+                                                    "Perak",
+                                                    "Perlis",
+                                                    "Selangor",
+                                                    "Terengganu",
+                                                    "Sabah",
+                                                    "Sarawak",
+                                                    "W.P. Kuala Lumpur",
+                                                    "W.P. Labuan",
+                                                    "W.P. Putrajaya"
+                                                ]
+                                }
+                   }
+               ],
+    "transform":  [
+                      {
+                          "calculate":  "datum.state == selectedState ? \u0027Selected state\u0027 : \u0027Other states\u0027",
+                          "as":  "focus"
+                      },
+                      {
+                          "calculate":  "replace(datum.state, \u0027W.P. \u0027, \u0027\u0027)",
+                          "as":  "state_label"
+                      }
+                  ],
+    "config":  {
+                   "font":  "Inter, Arial, sans-serif",
+                   "axis":  {
+                                "labelColor":  "#5d6870",
+                                "labelFontSize":  12,
+                                "labelPadding":  8,
+                                "titleColor":  "#172026",
+                                "titleFontSize":  13,
+                                "titleFontWeight":  700,
+                                "gridColor":  "#e5eeec",
+                                "domainColor":  "#cbd8d5",
+                                "tickColor":  "#cbd8d5"
+                            },
+                   "legend":  {
+                                  "labelColor":  "#5d6870",
+                                  "labelFontSize":  12,
+                                  "titleColor":  "#172026",
+                                  "titleFontSize":  12,
+                                  "titleFontWeight":  700,
+                                  "orient":  "bottom"
+                              },
+                   "view":  {
+                                "stroke":  null
+                            }
+               },
+    "layer":  [
+                  {
+                      "mark":  {
+                                   "type":  "line",
+                                   "strokeWidth":  1.7,
+                                   "opacity":  0.28
+                               },
+                      "encoding":  {
+                                       "x":  {
+                                                 "field":  "year",
+                                                 "type":  "ordinal",
+                                                 "axis":  {
+                                                              "title":  null,
+                                                              "labelAngle":  0
+                                                          }
+                                             },
+                                       "y":  {
+                                                 "field":  "internet_penetration_percent",
+                                                 "type":  "quantitative",
+                                                 "scale":  {
+                                                               "domain":  [
+                                                                              88,
+                                                                              101
+                                                                          ]
+                                                           },
+                                                 "axis":  {
+                                                              "title":  "Internet penetration (%)",
+                                                              "values":  [
+                                                                             90,
+                                                                             95,
+                                                                             100
+                                                                         ],
+                                                              "format":  ".0f"
+                                                          }
+                                             },
+                                       "detail":  {
+                                                      "field":  "state",
+                                                      "type":  "nominal"
+                                                  },
+                                       "color":  {
+                                                     "condition":  {
+                                                                       "test":  "datum.state == selectedState",
+                                                                       "value":  "#0f7b70"
+                                                                   },
+                                                     "value":  "#bdd6d1"
+                                                 },
+                                       "strokeWidth":  {
+                                                           "condition":  {
+                                                                             "test":  "datum.state == selectedState",
+                                                                             "value":  4
+                                                                         },
+                                                           "value":  1.4
+                                                       },
+                                       "opacity":  {
+                                                       "condition":  {
+                                                                         "test":  "datum.state == selectedState",
+                                                                         "value":  1
+                                                                     },
+                                                       "value":  0.35
+                                                   },
+                                       "tooltip":  [
+                                                       {
+                                                           "field":  "state",
+                                                           "type":  "nominal",
+                                                           "title":  "State"
+                                                       },
+                                                       {
+                                                           "field":  "year",
+                                                           "type":  "ordinal",
+                                                           "title":  "Year"
+                                                       },
+                                                       {
+                                                           "field":  "internet_penetration_percent",
+                                                           "type":  "quantitative",
+                                                           "title":  "Internet penetration",
+                                                           "format":  ".1f"
+                                                       }
+                                                   ]
+                                   }
+                  },
+                  {
+                      "transform":  [
+                                        {
+                                            "filter":  "datum.state == selectedState"
+                                        }
+                                    ],
+                      "mark":  {
+                                   "type":  "point",
+                                   "filled":  true,
+                                   "size":  90,
+                                   "color":  "#0f7b70",
+                                   "stroke":  "#ffffff",
+                                   "strokeWidth":  1.5
+                               },
+                      "encoding":  {
+                                       "x":  {
+                                                 "field":  "year",
+                                                 "type":  "ordinal"
+                                             },
+                                       "y":  {
+                                                 "field":  "internet_penetration_percent",
+                                                 "type":  "quantitative"
+                                             },
+                                       "tooltip":  [
+                                                       {
+                                                           "field":  "state",
+                                                           "type":  "nominal",
+                                                           "title":  "State"
+                                                       },
+                                                       {
+                                                           "field":  "year",
+                                                           "type":  "ordinal",
+                                                           "title":  "Year"
+                                                       },
+                                                       {
+                                                           "field":  "internet_penetration_percent",
+                                                           "type":  "quantitative",
+                                                           "title":  "Internet penetration",
+                                                           "format":  ".1f"
+                                                       }
+                                                   ]
+                                   }
+                  },
+                  {
+                      "transform":  [
+                                        {
+                                            "filter":  "datum.state == selectedState \u0026\u0026 +datum.year == 2024"
+                                        }
+                                    ],
+                      "mark":  {
+                                   "type":  "text",
+                                   "align":  "left",
+                                   "baseline":  "middle",
+                                   "dx":  8,
+                                   "color":  "#172026",
+                                   "fontWeight":  800,
+                                   "fontSize":  11
+                               },
+                      "encoding":  {
+                                       "x":  {
+                                                 "field":  "year",
+                                                 "type":  "ordinal"
+                                             },
+                                       "y":  {
+                                                 "field":  "internet_penetration_percent",
+                                                 "type":  "quantitative"
+                                             },
+                                       "text":  {
+                                                    "field":  "state_label",
+                                                    "type":  "nominal"
+                                                }
+                                   }
+                  }
+              ]
+}

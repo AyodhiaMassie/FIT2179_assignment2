@@ -1,0 +1,123 @@
+{
+    "$schema":  "https://vega.github.io/schema/vega-lite/v5.json",
+    "description":  "Daily internet usage duration in Malaysia by year.",
+    "width":  "container",
+    "height":  360,
+    "autosize":  {
+                     "type":  "fit",
+                     "contains":  "padding"
+                 },
+    "background":  "transparent",
+    "data":  {
+                 "url":  "../datasets/ch3_internet_usage_daily.csv"
+             },
+    "transform":  [
+                      {
+                          "calculate":  "replace(datum.usage_interval, \u0027 Hours\u0027, \u0027 hours\u0027)",
+                          "as":  "interval"
+                      },
+                      {
+                          "calculate":  "indexof([\u0027Less than 1 hour\u0027, \u00271-4 hours\u0027, \u00275-8 hours\u0027, \u00279-12 hours\u0027, \u002713-18 hours\u0027, \u0027More than 18 hours\u0027], datum.interval)",
+                          "as":  "usageOrder"
+                      }
+                  ],
+    "config":  {
+                   "font":  "Inter, Arial, sans-serif",
+                   "axis":  {
+                                "labelColor":  "#5d6870",
+                                "labelFontSize":  12,
+                                "labelPadding":  8,
+                                "titleColor":  "#172026",
+                                "titleFontSize":  13,
+                                "titleFontWeight":  700,
+                                "gridColor":  "#e5eeec",
+                                "domainColor":  "#cbd8d5",
+                                "tickColor":  "#cbd8d5"
+                            },
+                   "legend":  {
+                                  "labelColor":  "#5d6870",
+                                  "labelFontSize":  12,
+                                  "titleColor":  "#172026",
+                                  "titleFontSize":  12,
+                                  "titleFontWeight":  700,
+                                  "orient":  "bottom"
+                              },
+                   "view":  {
+                                "stroke":  null
+                            }
+               },
+    "mark":  {
+                 "type":  "bar",
+                 "cornerRadiusTopLeft":  2,
+                 "cornerRadiusTopRight":  2
+             },
+    "encoding":  {
+                     "x":  {
+                               "field":  "year",
+                               "type":  "ordinal",
+                               "axis":  {
+                                            "title":  null,
+                                            "labelAngle":  0
+                                        }
+                           },
+                     "y":  {
+                               "field":  "percentage",
+                               "type":  "quantitative",
+                               "stack":  "normalize",
+                               "axis":  {
+                                            "title":  "Share of internet users",
+                                            "format":  "%"
+                                        }
+                           },
+                     "color":  {
+                                   "field":  "interval",
+                                   "type":  "nominal",
+                                   "sort":  [
+                                                "Less than 1 hour",
+                                                "1-4 hours",
+                                                "5-8 hours",
+                                                "9-12 hours",
+                                                "13-18 hours",
+                                                "More than 18 hours"
+                                            ],
+                                   "scale":  {
+                                                 "range":  [
+                                                               "#d4e9e6",
+                                                               "#86c7bf",
+                                                               "#0f7b70",
+                                                               "#b65f2a",
+                                                               "#d5a073",
+                                                               "#ead3bd"
+                                                           ]
+                                             },
+                                   "legend":  {
+                                                  "title":  "Daily usage",
+                                                  "columns":  3,
+                                                  "labelLimit":  120
+                                              }
+                               },
+                     "order":  {
+                                   "field":  "usageOrder",
+                                   "type":  "quantitative",
+                                   "sort":  "ascending"
+                               },
+                     "tooltip":  [
+                                     {
+                                         "field":  "year",
+                                         "type":  "ordinal",
+                                         "title":  "Year"
+                                     },
+                                     {
+                                         "field":  "interval",
+                                         "type":  "nominal",
+                                         "title":  "Daily usage"
+                                     },
+                                     {
+                                         "field":  "percentage",
+                                         "type":  "quantitative",
+                                         "title":  "Share",
+                                         "format":  ".1f"
+                                     }
+                                 ]
+                 }
+}

@@ -1,0 +1,268 @@
+{
+    "$schema":  "https://vega.github.io/schema/vega-lite/v5.json",
+    "description":  "Internet penetration and median household income by Malaysian state.",
+    "width":  "container",
+    "height":  285,
+    "autosize":  {
+                     "type":  "fit",
+                     "contains":  "padding"
+                 },
+    "padding":  {
+                    "top":  18,
+                    "right":  24,
+                    "bottom":  14,
+                    "left":  12
+                },
+    "background":  "transparent",
+    "data":  {
+                 "url":  "../datasets/ch7_internetpen_vs_householdincome.csv"
+             },
+    "transform":  [
+                      {
+                          "calculate":  "datum.internet_penetration_2022_percent",
+                          "as":  "internet_penetration"
+                      },
+                      {
+                          "calculate":  "datum.median_household_income_2022_rm",
+                          "as":  "income"
+                      },
+                      {
+                          "calculate":  "indexof([\u0027Sabah\u0027, \u0027Sarawak\u0027, \u0027W.P. Kuala Lumpur\u0027, \u0027W.P. Putrajaya\u0027], datum.state) \u003e= 0 ? \u0027Highlighted state\u0027 : \u0027Other states\u0027",
+                          "as":  "focus"
+                      },
+                      {
+                          "calculate":  "replace(datum.state, \u0027W.P. \u0027, \u0027\u0027)",
+                          "as":  "state_label"
+                      }
+                  ],
+    "config":  {
+                   "font":  "Inter, Arial, sans-serif",
+                   "axis":  {
+                                "labelColor":  "#5d6870",
+                                "labelFontSize":  12,
+                                "labelPadding":  8,
+                                "titleColor":  "#172026",
+                                "titleFontSize":  13,
+                                "titleFontWeight":  700,
+                                "gridColor":  "#e5eeec",
+                                "domainColor":  "#cbd8d5",
+                                "tickColor":  "#cbd8d5"
+                            },
+                   "legend":  {
+                                  "labelColor":  "#5d6870",
+                                  "labelFontSize":  12,
+                                  "titleColor":  "#172026",
+                                  "titleFontSize":  12,
+                                  "titleFontWeight":  700,
+                                  "orient":  "bottom"
+                              },
+                   "view":  {
+                                "stroke":  null
+                            }
+               },
+    "layer":  [
+                  {
+                      "transform":  [
+                                        {
+                                            "regression":  "income",
+                                            "on":  "internet_penetration",
+                                            "extent":  [
+                                                           88,
+                                                           101
+                                                       ]
+                                        }
+                                    ],
+                      "mark":  {
+                                   "type":  "line",
+                                   "stroke":  "#172026",
+                                   "strokeDash":  [
+                                                      6,
+                                                      4
+                                                  ],
+                                   "strokeWidth":  2.5,
+                                   "opacity":  0.9
+                               },
+                      "encoding":  {
+                                       "x":  {
+                                                 "field":  "internet_penetration",
+                                                 "type":  "quantitative"
+                                             },
+                                       "y":  {
+                                                 "field":  "income",
+                                                 "type":  "quantitative"
+                                             }
+                                   }
+                  },
+                  {
+                      "mark":  {
+                                   "type":  "point",
+                                   "filled":  true,
+                                   "size":  100,
+                                   "opacity":  0.88,
+                                   "stroke":  "#ffffff",
+                                   "strokeWidth":  1.5
+                               },
+                      "encoding":  {
+                                       "x":  {
+                                                 "field":  "internet_penetration",
+                                                 "type":  "quantitative",
+                                                 "scale":  {
+                                                               "domain":  [
+                                                                              88,
+                                                                              101
+                                                                          ]
+                                                           },
+                                                 "axis":  {
+                                                              "title":  "Internet penetration (%)",
+                                                              "values":  [
+                                                                             90,
+                                                                             95,
+                                                                             100
+                                                                         ]
+                                                          }
+                                             },
+                                       "y":  {
+                                                 "field":  "income",
+                                                 "type":  "quantitative",
+                                                 "scale":  {
+                                                               "domain":  [
+                                                                              3000,
+                                                                              14000
+                                                                          ]
+                                                           },
+                                                 "axis":  {
+                                                              "title":  "Median household income (RM)",
+                                                              "format":  ",.0f",
+                                                              "titlePadding":  48
+                                                          }
+                                             },
+                                       "color":  {
+                                                     "field":  "focus",
+                                                     "type":  "nominal",
+                                                     "scale":  {
+                                                                   "domain":  [
+                                                                                  "Highlighted state",
+                                                                                  "Other states"
+                                                                              ],
+                                                                   "range":  [
+                                                                                 "#b65f2a",
+                                                                                 "#0f7b70"
+                                                                             ]
+                                                               },
+                                                     "legend":  null
+                                                 },
+                                       "tooltip":  [
+                                                       {
+                                                           "field":  "state",
+                                                           "type":  "nominal",
+                                                           "title":  "State"
+                                                       },
+                                                       {
+                                                           "field":  "internet_penetration",
+                                                           "type":  "quantitative",
+                                                           "title":  "Internet penetration",
+                                                           "format":  ".1f"
+                                                       },
+                                                       {
+                                                           "field":  "income",
+                                                           "type":  "quantitative",
+                                                           "title":  "Median household income",
+                                                           "format":  ","
+                                                       }
+                                                   ]
+                                   }
+                  },
+                  {
+                      "transform":  [
+                                        {
+                                            "filter":  "datum.focus == \u0027Highlighted state\u0027 \u0026\u0026 datum.state != \u0027Sabah\u0027 \u0026\u0026 datum.state != \u0027Sarawak\u0027"
+                                        }
+                                    ],
+                      "mark":  {
+                                   "type":  "text",
+                                   "align":  "left",
+                                   "baseline":  "middle",
+                                   "dx":  8,
+                                   "color":  "#172026",
+                                   "fontWeight":  800,
+                                   "fontSize":  11
+                               },
+                      "encoding":  {
+                                       "x":  {
+                                                 "field":  "internet_penetration",
+                                                 "type":  "quantitative"
+                                             },
+                                       "y":  {
+                                                 "field":  "income",
+                                                 "type":  "quantitative"
+                                             },
+                                       "text":  {
+                                                    "field":  "state_label",
+                                                    "type":  "nominal"
+                                                }
+                                   }
+                  },
+                  {
+                      "transform":  [
+                                        {
+                                            "filter":  "datum.state == \u0027Sabah\u0027"
+                                        }
+                                    ],
+                      "mark":  {
+                                   "type":  "text",
+                                   "align":  "left",
+                                   "baseline":  "middle",
+                                   "dx":  8,
+                                   "dy":  10,
+                                   "color":  "#172026",
+                                   "fontWeight":  800,
+                                   "fontSize":  11
+                               },
+                      "encoding":  {
+                                       "x":  {
+                                                 "field":  "internet_penetration",
+                                                 "type":  "quantitative"
+                                             },
+                                       "y":  {
+                                                 "field":  "income",
+                                                 "type":  "quantitative"
+                                             },
+                                       "text":  {
+                                                    "field":  "state_label",
+                                                    "type":  "nominal"
+                                                }
+                                   }
+                  },
+                  {
+                      "transform":  [
+                                        {
+                                            "filter":  "datum.state == \u0027Sarawak\u0027"
+                                        }
+                                    ],
+                      "mark":  {
+                                   "type":  "text",
+                                   "align":  "left",
+                                   "baseline":  "middle",
+                                   "dx":  8,
+                                   "dy":  -10,
+                                   "color":  "#172026",
+                                   "fontWeight":  800,
+                                   "fontSize":  11
+                               },
+                      "encoding":  {
+                                       "x":  {
+                                                 "field":  "internet_penetration",
+                                                 "type":  "quantitative"
+                                             },
+                                       "y":  {
+                                                 "field":  "income",
+                                                 "type":  "quantitative"
+                                             },
+                                       "text":  {
+                                                    "field":  "state_label",
+                                                    "type":  "nominal"
+                                                }
+                                   }
+                  }
+              ]
+}

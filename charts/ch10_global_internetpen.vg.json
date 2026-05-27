@@ -1,0 +1,228 @@
+﻿{
+    "$schema":  "https://vega.github.io/schema/vega-lite/v5.json",
+    "description":  "Malaysia\u0027s internet penetration compared with global and regional references.",
+    "width":  "container",
+    "height":  450,
+    "autosize":  {
+                     "type":  "fit",
+                     "contains":  "padding"
+                 },
+    "padding":  {
+                    "top":  22,
+                    "right":  108,
+                    "bottom":  20,
+                    "left":  12
+                },
+    "background":  "transparent",
+    "data":  {
+                 "url":  "../datasets/ch10_global_internetpen.csv"
+             },
+    "params":  [
+                   {
+                       "name":  "comparisonCountry",
+                       "value":  "Singapore",
+                       "bind":  {
+                                    "input":  "select",
+                                    "name":  "Compare with: ",
+                                    "options":  [
+                                                    "Singapore",
+                                                    "Thailand",
+                                                    "Indonesia",
+                                                    "Vietnam",
+                                                    "China",
+                                                    "South Korea",
+                                                    "Germany",
+                                                    "France",
+                                                    "Denmark",
+                                                    "Brazil",
+                                                    "Argentina",
+                                                    "Kenya",
+                                                    "Saudi Arabia",
+                                                    "United Arab Emirates",
+                                                    "Turkey",
+                                                    "Uruguay"
+                                                ]
+                                }
+                   }
+               ],
+    "transform":  [
+                      {
+                          "filter":  "indexof([\u0027Malaysia\u0027, \u0027World\u0027, \u0027Singapore\u0027, \u0027Thailand\u0027, \u0027Indonesia\u0027, \u0027Vietnam\u0027, \u0027China\u0027, \u0027South Korea\u0027, \u0027Germany\u0027, \u0027France\u0027, \u0027Denmark\u0027, \u0027Brazil\u0027, \u0027Argentina\u0027, \u0027Kenya\u0027, \u0027Saudi Arabia\u0027, \u0027United Arab Emirates\u0027, \u0027Turkey\u0027, \u0027Uruguay\u0027], datum.Entity) \u003e= 0 \u0026\u0026 +datum.Year \u003e= 2005 \u0026\u0026 +datum.Year \u003c= 2024"
+                      },
+                      {
+                          "calculate":  "datum.Entity == comparisonCountry ? \u0027Selected country\u0027 : datum.Entity == \u0027Malaysia\u0027 ? \u0027Malaysia\u0027 : datum.Entity == \u0027World\u0027 ? \u0027World\u0027 : \u0027Other countries\u0027",
+                          "as":  "focus"
+                      },
+                      {
+                          "calculate":  "datum.Entity == comparisonCountry || datum.Entity == \u0027Malaysia\u0027 ? datum.Entity : \u0027\u0027",
+                          "as":  "label"
+                      }
+                  ],
+    "config":  {
+                   "font":  "Inter, Arial, sans-serif",
+                   "axis":  {
+                                "labelColor":  "#5d6870",
+                                "labelFontSize":  12,
+                                "labelPadding":  8,
+                                "titleColor":  "#172026",
+                                "titleFontSize":  13,
+                                "titleFontWeight":  700,
+                                "gridColor":  "#e5eeec",
+                                "gridOpacity":  0.45,
+                                "domainColor":  "#cbd8d5",
+                                "tickColor":  "#cbd8d5"
+                            },
+                   "legend":  {
+                                  "labelColor":  "#5d6870",
+                                  "labelFontSize":  12,
+                                  "titleColor":  "#172026",
+                                  "titleFontSize":  12,
+                                  "titleFontWeight":  700,
+                                  "orient":  "bottom"
+                              },
+                   "view":  {
+                                "stroke":  null
+                            }
+               },
+    "layer":  [
+                  {
+                      "mark":  {
+                                   "type":  "line",
+                                   "interpolate":  "monotone",
+                                   "strokeWidth":  3,
+                                   "opacity":  0.9
+                               },
+                      "encoding":  {
+                                       "x":  {
+                                                 "field":  "Year",
+                                                 "type":  "quantitative",
+                                                 "scale":  {
+                                                               "domain":  [
+                                                                              2005,
+                                                                              2024
+                                                                          ]
+                                                           },
+                                                              "axis":  {
+                                                              "title":  null,
+                                                              "format":  "d",
+                                                              "grid":  false,
+                                                              "values":  [
+                                                                             2005,
+                                                                             2010,
+                                                                             2015,
+                                                                             2020,
+                                                                             2024
+                                                                         ]
+                                                          }
+                                             },
+                                       "y":  {
+                                                 "field":  "Share of the population using the Internet",
+                                                 "type":  "quantitative",
+                                                 "scale":  {
+                                                               "domain":  [
+                                                                              0,
+                                                                              100
+                                                                          ]
+                                                           },
+                                                              "axis":  {
+                                                              "title":  "Internet penetration (%)",
+                                                              "values":  [
+                                                                             0,
+                                                                             25,
+                                                                             50,
+                                                                             75,
+                                                                             100
+                                                                         ],
+                                                              "format":  ".0f"
+                                                          }
+                                             },
+                                      "color":  {
+                                                     "field":  "focus",
+                                                     "type":  "nominal",
+                                                     "scale":  {
+                                                                   "domain":  [
+                                                                                  "Malaysia",
+                                                                                  "Selected country",
+                                                                                  "World",
+                                                                                  "Other countries"
+                                                                              ],
+                                                                   "range":  [
+                                                                                 "#0f7b70",
+                                                                                 "#b65f2a",
+                                                                                 "#7a878c",
+                                                                                 "#cbd8d5"
+                                                                             ]
+                                                               },
+                                                     "legend":  null
+                                                 },
+                                       "strokeWidth":  {
+                                                           "condition":  {
+                                                                             "test":  "datum.Entity == \u0027Malaysia\u0027 || datum.Entity == comparisonCountry",
+                                                                             "value":  4.5
+                                                                         },
+                                                           "value":  1
+                                                       },
+                                       "opacity":  {
+                                                       "condition":  {
+                                                                         "test":  "datum.Entity == \u0027Malaysia\u0027 || datum.Entity == comparisonCountry",
+                                                                         "value":  1
+                                                                     },
+                                                       "value":  0.08
+                                                   },
+                                       "detail":  {
+                                                      "field":  "Entity",
+                                                      "type":  "nominal"
+                                                  },
+                                       "tooltip":  [
+                                                       {
+                                                           "field":  "Entity",
+                                                           "type":  "nominal",
+                                                           "title":  "Country or group"
+                                                       },
+                                                       {
+                                                           "field":  "Year",
+                                                           "type":  "quantitative",
+                                                           "title":  "Year",
+                                                           "format":  "d"
+                                                       },
+                                                       {
+                                                           "field":  "Share of the population using the Internet",
+                                                           "type":  "quantitative",
+                                                           "title":  "Internet penetration",
+                                                           "format":  ".1f"
+                                                       }
+                                                   ]
+                                   }
+                  },
+                  {
+                      "transform":  [
+                                        {
+                                            "filter":  "+datum.Year == 2024 \u0026\u0026 (datum.Entity == \u0027Malaysia\u0027 || datum.Entity == comparisonCountry)"
+                                        }
+                                    ],
+                      "mark":  {
+                                   "type":  "text",
+                                   "align":  "left",
+                                   "baseline":  "middle",
+                                   "dx":  8,
+                                   "color":  "#172026",
+                                   "fontWeight":  800,
+                                   "fontSize":  11
+                               },
+                      "encoding":  {
+                                       "x":  {
+                                                 "field":  "Year",
+                                                 "type":  "quantitative"
+                                             },
+                                       "y":  {
+                                                 "field":  "Share of the population using the Internet",
+                                                 "type":  "quantitative"
+                                             },
+                                       "text":  {
+                                                    "field":  "label",
+                                                    "type":  "nominal"
+                                                }
+                                   }
+                  }
+              ]
+}

@@ -1,0 +1,159 @@
+{
+    "$schema":  "https://vega.github.io/schema/vega-lite/v5.json",
+    "description":  "Internet access in urban and rural Malaysia.",
+    "width":  "container",
+    "height":  360,
+    "autosize":  {
+                     "type":  "fit",
+                     "contains":  "padding"
+                 },
+    "padding":  {
+                    "top":  16,
+                    "right":  30,
+                    "bottom":  20,
+                    "left":  18
+                },
+    "background":  "transparent",
+    "data":  {
+                 "url":  "../datasets/ch5_internet_usage_urbanvsrural.csv"
+             },
+    "transform":  [
+                      {
+                          "calculate":  "datum.area == \u0027urban\u0027 ? \u0027Urban\u0027 : \u0027Rural\u0027",
+                          "as":  "area"
+                      },
+                      {
+                          "calculate":  "format(datum.internet_access, \u0027.1f\u0027) + \u0027%\u0027",
+                          "as":  "label"
+                      }
+                  ],
+    "config":  {
+                   "font":  "Inter, Arial, sans-serif",
+                   "axis":  {
+                                "labelColor":  "#5d6870",
+                                "labelFontSize":  12,
+                                "labelPadding":  8,
+                                "titleColor":  "#172026",
+                                "titleFontSize":  13,
+                                "titleFontWeight":  700,
+                                "gridColor":  "#e5eeec",
+                                "domainColor":  "#cbd8d5",
+                                "tickColor":  "#cbd8d5"
+                            },
+                   "legend":  {
+                                  "labelColor":  "#5d6870",
+                                  "labelFontSize":  12,
+                                  "titleColor":  "#172026",
+                                  "titleFontSize":  12,
+                                  "titleFontWeight":  700,
+                                  "orient":  "bottom"
+                              },
+                   "view":  {
+                                "stroke":  null
+                            }
+               },
+    "layer":  [
+                  {
+                      "mark":  {
+                                   "type":  "bar",
+                                   "cornerRadiusEnd":  5,
+                                   "height":  {
+                                                  "band":  0.52
+                                              }
+                               },
+                      "encoding":  {
+                                       "y":  {
+                                                 "field":  "area",
+                                                 "type":  "nominal",
+                                                 "sort":  [
+                                                              "Urban",
+                                                              "Rural"
+                                                          ],
+                                                 "axis":  {
+                                                              "title":  null,
+                                                              "labelFontSize":  14,
+                                                              "labelFontWeight":  700
+                                                          }
+                                             },
+                                       "x":  {
+                                                 "field":  "internet_access",
+                                                 "type":  "quantitative",
+                                                 "scale":  {
+                                                               "domain":  [
+                                                                              0,
+                                                                              100
+                                                                          ]
+                                                           },
+                                                 "axis":  {
+                                                              "title":  "Internet access (%)",
+                                                              "values":  [
+                                                                             0,
+                                                                             25,
+                                                                             50,
+                                                                             75,
+                                                                             100
+                                                                         ],
+                                                              "grid":  true
+                                                          }
+                                             },
+                                       "color":  {
+                                                     "field":  "area",
+                                                     "type":  "nominal",
+                                                     "scale":  {
+                                                                   "domain":  [
+                                                                                  "Urban",
+                                                                                  "Rural"
+                                                                              ],
+                                                                   "range":  [
+                                                                                 "#0f7b70",
+                                                                                 "#b65f2a"
+                                                                             ]
+                                                               },
+                                                     "legend":  null
+                                                 },
+                                       "tooltip":  [
+                                                       {
+                                                           "field":  "area",
+                                                           "type":  "nominal",
+                                                           "title":  "Area"
+                                                       },
+                                                       {
+                                                           "field":  "internet_access",
+                                                           "type":  "quantitative",
+                                                           "title":  "Internet access",
+                                                           "format":  ".1f"
+                                                       }
+                                                   ]
+                                   }
+                  },
+                  {
+                      "mark":  {
+                                   "type":  "text",
+                                   "align":  "left",
+                                   "baseline":  "middle",
+                                   "dx":  8,
+                                   "color":  "#172026",
+                                   "fontWeight":  800,
+                                   "fontSize":  14
+                               },
+                      "encoding":  {
+                                       "y":  {
+                                                 "field":  "area",
+                                                 "type":  "nominal",
+                                                 "sort":  [
+                                                              "Urban",
+                                                              "Rural"
+                                                          ]
+                                             },
+                                       "x":  {
+                                                 "field":  "internet_access",
+                                                 "type":  "quantitative"
+                                             },
+                                       "text":  {
+                                                    "field":  "label",
+                                                    "type":  "nominal"
+                                                }
+                                   }
+                  }
+              ]
+}

@@ -1,0 +1,127 @@
+{
+    "$schema":  "https://vega.github.io/schema/vega-lite/v5.json",
+    "description":  "Selected 2024 online activities among internet users in Malaysia.",
+    "width":  "container",
+    "height":  360,
+    "autosize":  {
+                     "type":  "fit",
+                     "contains":  "padding"
+                 },
+    "padding":  {
+                    "top":  26,
+                    "right":  24,
+                    "bottom":  8,
+                    "left":  24
+                },
+    "background":  "transparent",
+    "data":  {
+                 "url":  "../datasets/ch2_internet_usage_byCategories.csv"
+             },
+    "transform":  [
+                      {
+                          "filter":  "+datum.year == 2024 \u0026\u0026 indexof([\u0027Participating in social networks\u0027, \u0027Downloading pictures, movie or games\u0027, \u0027Finding information about goods or services\u0027, \u0027Using Internet banking\u0027, \u0027Purchasing goods or services via e-Commerce\u0027], datum.category) \u003e= 0"
+                      },
+                      {
+                          "calculate":  "datum.category == \u0027Participating in social networks\u0027 ? \u0027Social networks\u0027 : datum.category == \u0027Downloading pictures, movie or games\u0027 ? \u0027Downloads and media\u0027 : datum.category == \u0027Finding information about goods or services\u0027 ? \u0027Finding goods or services\u0027 : datum.category == \u0027Using Internet banking\u0027 ? \u0027Banking\u0027 : \u0027e-Commerce purchases\u0027",
+                          "as":  "activity"
+                      },
+                      {
+                          "calculate":  "datum.category == \u0027Participating in social networks\u0027 ? \u0027social networks\u0027 : datum.category == \u0027Downloading pictures, movie or games\u0027 ? \u0027downloads and media\u0027 : datum.category == \u0027Finding information about goods or services\u0027 ? \u0027finding goods or services\u0027 : datum.category == \u0027Using Internet banking\u0027 ? \u0027banking\u0027 : \u0027e-Commerce purchases\u0027",
+                          "as":  "phrase"
+                      },
+                      {
+                          "calculate":  "format(datum.percentage, \u0027.0f\u0027) + \u0027% use the internet for \u0027 + datum.phrase",
+                          "as":  "tooltipText"
+                      }
+                  ],
+    "config":  {
+                   "font":  "Inter, Arial, sans-serif",
+                   "axis":  {
+                                "labelColor":  "#5d6870",
+                                "labelFontSize":  12,
+                                "labelPadding":  8,
+                                "titleColor":  "#172026",
+                                "titleFontSize":  13,
+                                "titleFontWeight":  700,
+                                "gridColor":  "#e5eeec",
+                                "domainColor":  "#cbd8d5",
+                                "tickColor":  "#cbd8d5"
+                            },
+                   "legend":  {
+                                  "labelColor":  "#5d6870",
+                                  "labelFontSize":  12,
+                                  "titleColor":  "#172026",
+                                  "titleFontSize":  12,
+                                  "titleFontWeight":  700,
+                                  "orient":  "bottom"
+                              },
+                   "view":  {
+                                "stroke":  null
+                            }
+               },
+    "layer":  [
+                  {
+                      "mark":  {
+                                   "type":  "arc",
+                                   "innerRadius":  28,
+                                   "stroke":  "#ffffff",
+                                   "strokeWidth":  2,
+                                   "cornerRadius":  3
+                               },
+                      "encoding":  {
+                                       "theta":  {
+                                                     "field":  "percentage",
+                                                     "type":  "quantitative",
+                                                     "scale":  {
+                                                                   "domain":  [
+                                                                                  0,
+                                                                                  100
+                                                                              ]
+                                                               },
+                                                     "stack":  false
+                                                 },
+                                       "radius":  {
+                                                      "field":  "activity",
+                                                      "type":  "nominal",
+                                                      "sort":  {
+                                                                   "field":  "percentage",
+                                                                   "order":  "descending"
+                                                               },
+                                                      "scale":  {
+                                                                    "type":  "band",
+                                                                    "rangeMin":  34,
+                                                                    "rangeMax":  128
+                                                                }
+                                                  },
+                                       "color":  {
+                                                     "field":  "activity",
+                                                     "type":  "nominal",
+                                                     "sort":  {
+                                                                  "field":  "percentage",
+                                                                  "order":  "descending"
+                                                              },
+                                                     "scale":  {
+                                                                   "range":  [
+                                                                                 "#0f766e",
+                                                                                 "#2cb1a1",
+                                                                                 "#9ae1c0",
+                                                                                 "#b65f2a",
+                                                                                 "#d7a174"
+                                                                             ]
+                                                               },
+                                                     "legend":  {
+                                                                    "title":  "2024 activity",
+                                                                    "columns":  1
+                                                                }
+                                                 },
+                                       "tooltip":  [
+                                                       {
+                                                           "field":  "tooltipText",
+                                                           "type":  "nominal",
+                                                           "title":  "Usage"
+                                                       }
+                                                   ]
+                                   }
+                  }
+              ]
+}
