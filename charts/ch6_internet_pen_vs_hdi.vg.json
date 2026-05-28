@@ -15,7 +15,7 @@
                 },
     "background":  "transparent",
     "data":  {
-                 "url":  "datasets/ch6_internet_pen_vs_hdi.csv"
+                 "url":  "/datasets/ch6_internet_pen_vs_hdi.csv"
              },
     "transform":  [
                       {

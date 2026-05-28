@@ -15,7 +15,7 @@
                 },
     "background":  "transparent",
     "data":  {
-                 "url":  "datasets/ch2_internet_usage_byCategories.csv"
+                 "url":  "/datasets/ch2_internet_usage_byCategories.csv"
              },
     "transform":  [
                       {

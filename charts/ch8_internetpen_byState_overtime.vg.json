@@ -15,7 +15,7 @@
                 },
     "background":  "transparent",
     "data":  {
-                 "url":  "datasets/ch8_internetpen_byState_overtime.csv"
+                 "url":  "/datasets/ch8_internetpen_byState_overtime.csv"
              },
     "params":  [
                    {
