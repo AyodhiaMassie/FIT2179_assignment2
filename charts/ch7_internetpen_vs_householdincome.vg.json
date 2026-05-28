@@ -15,7 +15,7 @@
                 },
     "background":  "transparent",
     "data":  {
-                 "url":  "../datasets/ch7_internetpen_vs_householdincome.csv"
+                 "url":  "datasets/ch7_internetpen_vs_householdincome.csv"
              },
     "transform":  [
                       {
