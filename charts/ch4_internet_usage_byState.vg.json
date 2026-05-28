@@ -15,7 +15,7 @@
                 },
     "background":  "transparent",
     "data":  {
-                 "url":  "../datasets/malaysia_states.geojson",
+                 "url":  "datasets/malaysia_states.geojson",
                  "format":  {
                                 "type":  "json",
                                 "property":  "features"
@@ -26,7 +26,7 @@
                           "lookup":  "properties.name",
                           "from":  {
                                        "data":  {
-                                                    "url":  "../datasets/ch4_internet_usage_byState.csv"
+                                                    "url":  "datasets/ch4_internet_usage_byState.csv"
                                                 },
                                        "key":  "state",
                                        "fields":  [

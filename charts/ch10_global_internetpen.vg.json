@@ -15,7 +15,7 @@
                 },
     "background":  "transparent",
     "data":  {
-                 "url":  "../datasets/ch10_global_internetpen.csv"
+                 "url":  "datasets/ch10_global_internetpen.csv"
              },
     "params":  [
                    {

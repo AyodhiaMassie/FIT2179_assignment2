@@ -9,7 +9,7 @@
                  },
     "background":  "transparent",
     "data":  {
-                 "url":  "../datasets/ch3_internet_usage_daily.csv"
+                 "url":  "datasets/ch3_internet_usage_daily.csv"
              },
     "transform":  [
                       {
