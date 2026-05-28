@@ -26,7 +26,7 @@
                           "lookup":  "properties.name",
                           "from":  {
                                        "data":  {
-                                                    "url":  "../datasets/ch4_internet_usage_byState.csv"
+                                                    "url":  "datasets/ch4_internet_usage_byState.csv"
                                                 },
                                        "key":  "state",
                                        "fields":  [
