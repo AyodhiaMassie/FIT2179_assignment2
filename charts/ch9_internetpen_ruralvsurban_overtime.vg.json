@@ -15,7 +15,7 @@
                 },
     "background":  "transparent",
     "data":  {
-                 "url":  "/datasets/ch9_internetpen_ruralvsurban_overtime.csv"
+                 "url":  "../datasets/ch9_internetpen_ruralvsurban_overtime.csv"
              },
     "config":  {
                    "font":  "Inter, Arial, sans-serif",

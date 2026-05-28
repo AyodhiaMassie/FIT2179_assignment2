@@ -15,7 +15,7 @@
                 },
     "background":  "transparent",
     "data":  {
-                 "url":  "/datasets/ch5_internet_usage_urbanvsrural.csv"
+                 "url":  "../datasets/ch5_internet_usage_urbanvsrural.csv"
              },
     "transform":  [
                       {
