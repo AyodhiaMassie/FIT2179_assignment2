@@ -9,7 +9,7 @@
   },
   "background": "transparent",
   "data": {
-    "url": "../datasets/ch1_internet_pen_overtime.csv"
+    "url": "datasets/ch1_internet_pen_overtime.csv"
   },
   "config": {
     "font": "Inter, Arial, sans-serif",
