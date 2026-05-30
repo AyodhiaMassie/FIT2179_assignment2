@@ -39,10 +39,10 @@ svg {
 }
 
 .site-hero {
-  min-height: 82vh;
+  min-height: 58vh;
   display: flex;
   align-items: center;
-  padding: 72px 0 52px;
+  padding: 52px 0 38px;
   border-bottom: 1px solid var(--rule);
   background:
     linear-gradient(90deg, rgba(15, 123, 112, 0.12), transparent 48%),
@@ -53,17 +53,24 @@ svg {
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 320px;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 64px;
+  gap: 48px;
   align-items: center;
 }
 
 .kicker,
-.section-label,
 .meta-label {
   margin: 0 0 14px;
   color: var(--accent-dark);
   font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.section-label {
+  margin: 0 0 16px;
+  color: var(--accent-dark);
+  font-size: 1rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -80,24 +87,26 @@ h3 {
 }
 
 h1 {
-  max-width: 1080px;
-  font-size: clamp(4.2rem, 9.3vw, 8.9rem);
-  line-height: 0.86;
+  max-width: 980px;
+  font-size: clamp(3.45rem, 7.2vw, 6.8rem);
+  line-height: 0.9;
 }
 
 h2 {
   max-width: 760px;
-  font-size: clamp(2.15rem, 4.4vw, 4.5rem);
-  line-height: 0.98;
+  font-size: clamp(2rem, 3.6vw, 3.75rem);
+  line-height: 1;
 }
 
-.chapter-four-sidebar .chapter-summary p {
+.chapter-four-sidebar .chapter-summary p:not(.section-label) {
   margin-top: 1.2rem;
+  font-size: 1.2rem;
+  line-height: 1.72;
 }
 
 h3 {
-  font-size: clamp(1.25rem, 2vw, 1.7rem);
-  line-height: 1.08;
+  font-size: clamp(1.2rem, 1.55vw, 1.55rem);
+  line-height: 1.12;
 }
 
 p {
@@ -109,9 +118,9 @@ p {
 
 .dek {
   max-width: 760px;
-  margin-top: 26px;
+  margin-top: 22px;
   color: #344149;
-  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  font-size: clamp(1.05rem, 1.45vw, 1.24rem);
   line-height: 1.62;
 }
 
@@ -133,12 +142,12 @@ p {
 }
 
 .chapter {
-  padding: 96px 0;
+  padding: 88px 0;
   border-bottom: 1px solid var(--rule);
 }
 
 .term-strip {
-  padding: 28px 0;
+  padding: 38px 0;
   background: var(--ink);
 }
 
@@ -149,16 +158,16 @@ p {
 }
 
 .term-grid p {
-  max-width: 520px;
+  max-width: 600px;
   color: #d8e2e0;
-  font-size: 0.94rem;
-  line-height: 1.55;
+  font-size: 1.08rem;
+  line-height: 1.62;
 }
 
 .term-grid .term-name {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   color: #ffffff;
-  font-size: 0.78rem;
+  font-size: 0.86rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -223,7 +232,7 @@ p {
 .story-copy p:not(.section-label) {
   max-width: 620px;
   margin-top: 22px;
-  font-size: 1.08rem;
+  font-size: 1.2rem;
 }
 
 .section-intro {
@@ -233,7 +242,7 @@ p {
 
 .section-intro p:not(.section-label) {
   margin-top: 20px;
-  font-size: 1.08rem;
+  font-size: 1.2rem;
 }
 
 .section-intro.narrow {
@@ -260,6 +269,10 @@ p {
   align-items: start;
 }
 
+#chapter-5 .section-intro .intro-copy {
+  padding-top: clamp(44px, 4.8vw, 78px);
+}
+
 #chapter-5 .section-intro .snapshot-card {
   align-self: start;
   margin-top: -18px;
@@ -271,6 +284,10 @@ p {
   font-size: clamp(2.35rem, 3.6vw, 3rem);
   font-weight: 700;
   line-height: 0.95;
+}
+
+#chapter-5 .section-intro .snapshot-card .snapshot-text {
+  color: var(--ink);
 }
 
 .snapshot-card {
@@ -287,7 +304,7 @@ p {
 .snapshot-label {
   margin-bottom: 14px;
   color: var(--accent-dark);
-  font-size: 1.05rem;
+  font-size: 0.88rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   line-height: 1.2;
@@ -346,8 +363,8 @@ p {
 #chapter-4 .development-snapshot .snapshot-text {
   margin-top: 16px;
   color: #344149;
-  font-size: 0.92rem;
-  line-height: 1.35;
+  font-size: 1.18rem;
+  line-height: 1.55;
 }
 
 #chapter-4 .development-snapshot .snapshot-item {
@@ -376,26 +393,27 @@ p {
 .chapter-three-intro .intro-copy p:not(.section-label) {
   max-width: 760px;
   margin-top: 22px;
-  font-size: 1.08rem;
+  font-size: 1.2rem;
 }
 
 .paired-layout {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 42px;
+  gap: 36px;
   align-items: stretch;
 }
 
 .viz-story {
   display: grid;
   grid-template-rows: auto auto;
+  gap: 16px;
   align-items: stretch;
   min-width: 0;
 }
 
 .chart-shell {
   margin: 0;
-  padding: 22px;
+  padding: 24px;
   min-width: 0;
   background: var(--panel);
   border: 1px solid var(--rule);
@@ -406,8 +424,8 @@ p {
 .paired-layout .chart-shell {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
-  height: 606px;
-  min-height: 606px;
+  height: 620px;
+  min-height: 620px;
 }
 
 .chart-large {
@@ -417,20 +435,20 @@ p {
 .chart-heading {
   display: flex;
   justify-content: space-between;
-  gap: 24px;
-  padding-bottom: 18px;
+  gap: 28px;
+  padding-bottom: 20px;
   border-bottom: 1px solid var(--rule);
 }
 
 .paired-layout .chart-heading {
-  min-height: 86px;
+  min-height: 92px;
   align-items: flex-start;
 }
 
 .chart-heading p {
   max-width: 230px;
   color: #64706f;
-  font-size: 0.78rem;
+  font-size: 0.86rem;
   line-height: 1.45;
   text-align: right;
 }
@@ -485,20 +503,20 @@ p {
 }
 
 .fallback-area {
-  fill: #d7efea;
+  fill: #fef3c7;
   opacity: 0.65;
 }
 
 .fallback-line {
   fill: none;
-  stroke: #0f7b70;
+  stroke: #f59e0b;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 4;
 }
 
 .fallback-point {
-  fill: #0f7b70;
+  fill: #f59e0b;
   stroke: #ffffff;
   stroke-width: 2;
 }
@@ -592,7 +610,7 @@ figcaption,
 .annotation {
   margin-top: 14px;
   color: #5d6870;
-  font-size: 0.92rem;
+  font-size: 0.96rem;
   line-height: 1.6;
 }
 
@@ -615,8 +633,8 @@ figcaption,
 
 .takeaway-card p {
   color: #314047;
-  font-size: 0.92rem;
-  line-height: 1.55;
+  font-size: 0.96rem;
+  line-height: 1.6;
 }
 
 .takeaway-label {
@@ -716,8 +734,7 @@ figcaption,
 }
 
 .footer-sources ul {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 10px;
   margin: 0;
   padding: 0;
@@ -725,13 +742,21 @@ figcaption,
 }
 
 .footer-sources li {
-  padding: 8px 10px;
-  border: 1px solid rgba(154, 225, 192, 0.28);
-  border-radius: 999px;
-  background: rgba(215, 239, 234, 0.08);
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(216, 226, 224, 0.18);
   color: #eef7f5;
-  font-size: 0.82rem;
+  font-size: 0.86rem;
   font-weight: 700;
+}
+
+.footer-sources a {
+  color: #eef7f5;
+  text-decoration-color: rgba(154, 225, 192, 0.7);
+  text-underline-offset: 3px;
+}
+
+.footer-sources a:hover {
+  color: #9ae1c0;
 }
 
 @media (max-width: 920px) {
@@ -787,6 +812,10 @@ figcaption,
 
   #chapter-5 .section-intro p:not(.section-label) {
     max-width: 760px;
+  }
+
+  #chapter-5 .section-intro .intro-copy {
+    padding-top: 0;
   }
 }
 

@@ -33,7 +33,7 @@
       "mark": {
         "type": "area",
         "interpolate": "monotone",
-        "color": "#d7efea",
+        "color": "#fef3c7",
         "opacity": 0.65
       },
       "encoding": {
@@ -63,7 +63,7 @@
       "mark": {
         "type": "line",
         "interpolate": "monotone",
-        "stroke": "#0f7b70",
+        "stroke": "#f59e0b",
         "strokeWidth": 4
       },
       "encoding": {
@@ -100,7 +100,7 @@
         "type": "point",
         "filled": true,
         "size": 110,
-        "color": "#0f7b70",
+        "color": "#f59e0b",
         "stroke": "#ffffff",
         "strokeWidth": 2,
         "cursor": "pointer"

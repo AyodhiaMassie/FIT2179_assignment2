@@ -99,14 +99,21 @@
                                                      "sort":  {
                                                                   "field":  "percentage",
                                                                   "order":  "descending"
-                                                              },
+                                                     },
                                                      "scale":  {
+                                                                   "domain":  [
+                                                                                 "Social networks",
+                                                                                 "Downloads and media",
+                                                                                 "Finding goods or services",
+                                                                                 "Banking",
+                                                                                 "e-Commerce purchases"
+                                                                             ],
                                                                    "range":  [
-                                                                                 "#0f766e",
-                                                                                 "#2cb1a1",
-                                                                                 "#9ae1c0",
-                                                                                 "#b65f2a",
-                                                                                 "#d7a174"
+                                                                                 "#e11d48",
+                                                                                 "#64748b",
+                                                                                 "#84cc16",
+                                                                                 "#ca8a04",
+                                                                                 "#db2777"
                                                                              ]
                                                                },
                                                      "legend":  {

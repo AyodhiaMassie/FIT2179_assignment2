@@ -10,16 +10,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,650;6..72,750&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?cb=20260528-015" />
+  <link rel="stylesheet" href="style.css?cb=20260530-001" />
   <style>
     /* Critical inline rules to ensure layout loads even if external CSS is cached */
     body { margin: 0; background: #f4f7f6; color: #172026; font-family: "Inter", Arial, sans-serif; }
     .container { width: min(1360px, calc(100% - 56px)); margin: 0 auto; }
-    .site-hero { min-height: 82vh; display: flex; align-items: center; padding: 72px 0 52px; border-bottom: 1px solid #cbd8d5; background: linear-gradient(90deg, rgba(15,123,112,0.12), transparent 48%), radial-gradient(circle at 82% 22%, rgba(182,95,42,0.14), transparent 28%), #f4f7f6; }
-    .hero-grid { display: grid; grid-template-columns: minmax(0,1fr) 320px; gap: 64px; align-items: center; }
+    .site-hero { min-height: 58vh; display: flex; align-items: center; padding: 52px 0 38px; border-bottom: 1px solid #cbd8d5; background: linear-gradient(90deg, rgba(15,123,112,0.12), transparent 48%), radial-gradient(circle at 82% 22%, rgba(182,95,42,0.14), transparent 28%), #f4f7f6; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0,1fr) 320px; gap: 48px; align-items: center; }
     h1,h2,h3 { margin: 0; color: #172026; font-family: "Newsreader", Georgia, serif; }
     .hero-meta { align-self: end; padding: 24px 0 0 24px; border-left: 2px solid #0f7b70; }
-    .paired-layout, .story-grid, .hero-grid { gap: 42px; }
+    .story-grid { gap: 42px; }
+    .paired-layout { gap: 36px; }
     .paired-layout { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); }
     #chapter-2 .section-intro { max-width: none; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 42px; align-items: end; }
     .chapter-three-intro { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 42px; margin-bottom: 58px; }
@@ -28,7 +29,7 @@
     #chapter-5 .section-intro p:not(.section-label) { max-width: 760px; }
     .chapter-four-grid { column-gap: 72px; row-gap: 38px; }
     .footer-grid { display: grid; grid-template-columns: minmax(320px,1.1fr) minmax(240px,0.8fr) minmax(280px,0.9fr); gap: 48px; align-items: start; }
-    .chart-shell { background: #fff; border: 1px solid #cbd8d5; border-radius: 8px; box-shadow: 0 18px 45px rgba(23,32,38,0.08); padding: 22px; }
+    .chart-shell { background: #fff; border: 1px solid #cbd8d5; border-radius: 8px; box-shadow: 0 18px 45px rgba(23,32,38,0.08); padding: 24px; }
   </style>
 </head>
 
@@ -486,7 +487,7 @@
             <p class="section-label">Chapter 5</p>
             <h2>Progress is happening, but unevenly</h2>
             <p>
-              If connectivity shapes opportunity, the next question is whether places with less access are catching up. Recent trends show improvement, but the gains are still not enough to close every gap.
+              If connectivity shapes opportunity, the next question is whether places with less access are catching up. Recent trends show improvement across states and between urban and rural areas, but the gains are still uneven. Some places are moving faster than others, and the progress is not yet enough to close every gap.
             </p>
           </div>
           <aside class="snapshot-card" aria-label="Chapter 5 improvement snapshot">
@@ -648,11 +649,11 @@
       <div class="footer-sources">
         <p class="footer-label">Data sources</p>
         <ul>
-          <li>World Bank</li>
-          <li>DOSM ICT Survey</li>
-          <li>MCMC</li>
-          <li>UNDP</li>
-          <li>Our World in Data</li>
+          <li><a href="https://data.worldbank.org/indicator/IT.NET.USER.ZS" target="_blank" rel="noopener">World Bank: Individuals using the Internet (% of population)</a></li>
+          <li><a href="https://www.dosm.gov.my/portal-main/release-content/ict-use-and-access-by-individuals-and-households-survey-report-2024" target="_blank" rel="noopener">DOSM: ICT Use and Access by Individuals and Households Survey Report 2024</a></li>
+          <li><a href="https://www.mcmc.gov.my/skmmgovmy/media/General/IUS-2022.pdf" target="_blank" rel="noopener">MCMC: Internet Users Survey 2022</a></li>
+          <li><a href="https://hdr.undp.org/data-center/human-development-index" target="_blank" rel="noopener">UNDP: Human Development Index</a></li>
+          <li><a href="https://ourworldindata.org/internet" target="_blank" rel="noopener">Our World in Data: Internet</a></li>
         </ul>
       </div>
     </div>

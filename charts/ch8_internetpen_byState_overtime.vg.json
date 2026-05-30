@@ -122,9 +122,9 @@
                                        "color":  {
                                                      "condition":  {
                                                                        "test":  "datum.state == selectedState",
-                                                                       "value":  "#0f7b70"
+                                                                      "value":  "#4d7c0f"
                                                                    },
-                                                     "value":  "#bdd6d1"
+                                                     "value":  "#cbd8d5"
                                                  },
                                        "strokeWidth":  {
                                                            "condition":  {
@@ -170,7 +170,7 @@
                                    "type":  "point",
                                    "filled":  true,
                                    "size":  90,
-                                   "color":  "#0f7b70",
+                                   "color":  "#4d7c0f",
                                    "stroke":  "#ffffff",
                                    "strokeWidth":  1.5
                                },

@@ -81,13 +81,21 @@
                                                 "More than 18 hours"
                                             ],
                                    "scale":  {
+                                                 "domain":  [
+                                                              "Less than 1 hour",
+                                                              "1-4 hours",
+                                                              "5-8 hours",
+                                                              "9-12 hours",
+                                                              "13-18 hours",
+                                                              "More than 18 hours"
+                                                           ],
                                                  "range":  [
-                                                               "#d4e9e6",
-                                                               "#86c7bf",
-                                                               "#0f7b70",
-                                                               "#b65f2a",
-                                                               "#d5a073",
-                                                               "#ead3bd"
+                                                              "#e4f3f0",
+                                                              "#c4e5dd",
+                                                              "#96ccc5",
+                                                              "#66b3bd",
+                                                              "#3f8fbd",
+                                                              "#2c5f9d"
                                                            ]
                                              },
                                    "legend":  {
